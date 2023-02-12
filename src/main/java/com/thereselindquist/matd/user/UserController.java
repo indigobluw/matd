@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
-    private final UserModelRepository userModelRepository;
+    private final UserRepository userModelRepository;
     private final AppPasswordConfig appPasswordConfig;
 
     @Autowired
-    public UserController(UserModelRepository userModelRepository, AppPasswordConfig appPasswordConfig) {
+    public UserController(UserRepository userModelRepository, AppPasswordConfig appPasswordConfig) {
         this.userModelRepository = userModelRepository;
         this.appPasswordConfig = appPasswordConfig;
     }

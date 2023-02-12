@@ -1,13 +1,16 @@
 package com.thereselindquist.matd.user;
 
+import com.thereselindquist.matd.todo.TodoItemModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,6 +34,10 @@ public class UserModel implements UserDetails {
     private boolean isAccountNonLocked;
     private boolean isCredentialsNonExpired;
     private boolean isEnabled;
+
+    @OneToMany(targetEntity = TodoItemModel.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "userId", referencedColumnName = "userId")
+    private Set<TodoItemModel> todoItemModels;
 
     public UserModel() {
     }
