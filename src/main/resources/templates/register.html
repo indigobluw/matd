@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Create Account | ToDo </title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+    <a th:href="@{/}" class="navbar-brand mb-0 h2">
+        ToDo
+    </a>
+    <button
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            class="navbar-toggler"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+    >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a th:href="@{/home}" class="nav-link">
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/aboutus}" class="nav-link">
+                    About us
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/register}" class="nav-link">
+                    Create Account
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/createitem}" class="nav-link">
+                    Create ToDo
+                </a>
+            </li>
+            <li class="nav-item">
+                <a th:href="@{/login}" class="nav-link">
+                    Login
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="register-page">
+    <h1 class="title">Create an account</h1>
+    <div class="container">
+        <div class=" d-flex justify-content-center">
+
+            <form class="m-4" th:action="@{/register}" th:object="${userModel}" method="post">
+                <div class="m-4">
+                    <p>What should we call you?</p>
+                    <input class="border border-secondary p-2 rounded" th:field="*{username}" type="text"
+                           placeholder="Username">
+
+                    <p th:if="${ #fields.hasErrors('username') }"
+                       th:errors="*{username}"
+                       th:errorclass="error"
+                    ></p>
+                </div>
+
+                <div class="m-4">
+                    <p>Make sure only you can access your account</p>
+                    <input class="border border-secondary p-2 rounded" th:field="*{password}" type="password"
+                           placeholder="Set Password">
+                </div>
+
+                <div class="m-4 dropdown d-flex">
+
+                    <select class="btn btn-warning dropdown-toggle" th:field="*{authorities}">
+                        <option class="dropdown-item" th:text="Admin" value="Admin"></option>
+                        <option class="dropdown-item" th:text="User" value="User"></option>
+                    </select>
+
+                </div>
+
+                <div>
+                    <ul>
+                        <li th:each="error : ${#fields.errors('password')}"
+                            th:text="${error}"
+                            class="error">
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex justify-content-center p-5">
+                    <input type="submit" value="Create Account" class="btn btn-warning btn-lg">
+                </div>
+                <div class="under-text">
+                    <a th:href="@{/login}">Already have an account? Log in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

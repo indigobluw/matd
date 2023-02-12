@@ -1,0 +1,142 @@
+/*Home*/
+
+.homepage {
+    background-image: url("homepage.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.textbox,
+.text-on-pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* About us */
+
+.aboutus {
+    background-image: url("aboutus.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color: gray;
+}
+
+.about-us-text {
+    padding-left: 3em;
+    padding-right: 3em;
+    padding-top: 2em;
+}
+
+.text-on-pic {
+    font-size: 60px;
+    color: black;
+}
+
+/* Footer */
+
+.footer {
+    display: flex;
+    align-content: center;
+    position: relative;
+    justify-content: space-around;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    max-width: 30%;
+    z-index: 1;
+}
+
+.bi-facebook,
+.bi-apple,
+.bi-instagram,
+.bi-twitter {
+    cursor: pointer;
+}
+
+/* Login */
+
+.login-form {
+    max-width: 400px;
+
+}
+
+.login-page {
+
+}
+
+/* Admin */
+
+.admin-page {
+    background-image: url("admin.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    min-height: 80vh;
+    width: 100%;
+}
+
+/* User */
+
+.home-user {
+    background-image: url("user.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    min-height: 80vh;
+    width: 100%;
+}
+
+/* Register */
+
+.container {
+    border-style: solid;
+    border-radius: 5px;
+    border-color: gray;
+    width: 300px;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    padding-top: 2em;
+}
+
+.under-text {
+    font-size: 12px;
+    text-align: center;
+    padding-top: -10px;
+}
+
+.register-page {
+    background-image: url("login.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* List */
