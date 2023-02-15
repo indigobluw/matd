@@ -139,4 +139,8 @@ a:hover {
     width: 100%;
 }
 
-/* List */
+/* Create Item */
+
+.create-item-form {
+    width: 300px;
+}

@@ -56,9 +56,15 @@
 </nav>
 
 <section class="main" th:if="${totalNumberOfItems > 0}"></section>
-
-<form th:action="@{/createitem}" method="post" th:object="${item}">
-    <input class="new-todo" placeholder="Clean kitchen" autofocus th:field="${item.title}">
-</form>
+<h1 class="title">Create a ToDo</h1>
+<div class=" d-flex justify-content-center m-4">
+    <form style="max-width: 350px;" th:action="@{/createitem}" method="post" th:object="${item}">
+        <input class="border border-secondary p-3 rounded" placeholder="Clean kitchen" autofocus
+               th:field="${item.title}">
+        <div class="m-2" style="padding-left: 70px">
+            <input type="submit" class="btn btn-warning" value="Save">
+        </div>
+    </form>
+</div>
 </body>
 </html>
