@@ -57,17 +57,8 @@
 
 <section class="main" th:if="${totalNumberOfItems > 0}"></section>
 
-<form class="m-4" th:action="@{/createitem}" method="post" th:object="${item}">
-    <div class="m-4">
-        <p>Create an entry</p>
-        <input class="new-todo" placeholder="Clean kitchen" autofocus th:field="*{title}">
-    </div>
-
-    <div th:each="banan: ${ToDoItemModel}">
-        <p th:text="${banan.title}">
-        <p th:text="${banan.completed}">
-        <p th:text="${banan.favorite}">
-    </div>
+<form th:action="@{/createitem}" method="post" th:object="${item}">
+    <input class="new-todo" placeholder="Clean kitchen" autofocus th:field="${item.title}">
 </form>
 </body>
 </html>

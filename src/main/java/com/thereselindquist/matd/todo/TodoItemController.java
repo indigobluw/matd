@@ -19,16 +19,15 @@ public class TodoItemController {
         this.repository = repository;
     }
 
-    @RequestMapping("/todo")
 
-    @GetMapping
+    @GetMapping("/createitem")
     public String index(Model model) {
         model.addAttribute("item", new TodoItemFormData());
         model.addAttribute("totalNumberOfItems", repository.count());
         return "createitem";
     }
 
-    @PostMapping
+    @PostMapping("/createitem")
     public String addNewToDoItem(@Valid @ModelAttribute("item") TodoItemFormData formData) {
         repository.save(new TodoItemModel(formData.getTitle(), false, false));
         return "redirect:/createitem";
