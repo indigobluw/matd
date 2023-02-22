@@ -8,13 +8,13 @@ import java.util.stream.Collectors;
 import static com.thereselindquist.matd.user.authorities.UserPermissions.*;
 
 public enum UserRoles {
-    ADMIN(Set.of(ADMIN_CAN_READ,
-            ADMIN_CAN_DELETE,
-            ADMIN_CAN_WRITE,
-            ADMIN_CAN_POST)),
-    USER(Set.of(USER_CAN_READ,
-            USER_CAN_WRITE,
-            USER_CAN_POST));
+    ADMIN(Set.of(ADMIN_READ,
+            ADMIN_DELETE,
+            ADMIN_WRITE,
+            ADMIN_POST)),
+    USER(Set.of(USER_READ,
+            USER_WRITE,
+            USER_POST));
 
     private final Set<UserPermissions> permissionsList;
 
