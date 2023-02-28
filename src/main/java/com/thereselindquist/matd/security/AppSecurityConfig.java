@@ -32,9 +32,9 @@ public class AppSecurityConfig {
                 .authorizeHttpRequests(requests -> {
                     requests
                             .requestMatchers("/", "/aboutus", "/login", "/register", "/static/**").permitAll()
-                            .requestMatchers("/admin", "/logout").hasRole("ADMIN")
-                            .requestMatchers("/createitem").authenticated()
-                            .requestMatchers("/user", "/showitems", "/logout").hasRole("USER")
+                            //.requestMatchers().hasRole("ADMIN")
+                            .requestMatchers("/createitem", "/user", "/showitems", "/logout", "/admin").authenticated()
+                            //.requestMatchers().hasRole("USER")
                             .anyRequest()
                             .authenticated();
                 })
@@ -54,7 +54,7 @@ public class AppSecurityConfig {
                 .logout(logout -> {
                     logout
                             .logoutUrl("/logout")
-                            .logoutSuccessUrl("/login")
+                            .logoutSuccessUrl("/")
                             .clearAuthentication(true)
                             .invalidateHttpSession(true)
                             .deleteCookies("JSESSIONID", "remember-me");

@@ -25,6 +25,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
+            <div sec:authorize="isAuthenticated()" th:object="${userModel}">
+                <p> Welcome </p>
+
+            </div>
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a th:href="@{/}" class="nav-link">
@@ -59,6 +63,14 @@
         <p>The best, simplest and fastest way to create and finish tasks </p>
         <button type="button" class="btn btn-warning btn-lg">
             <a th:href="@{/register}">Get started!</a></button>
+        <div sec:authorize="isAuthenticated()">
+            <button type="button" class="btn btn-warning btn-lg m-2">
+                <a th:href="@{/logout}">Logout</a></button>
+        </div>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.userId}"></td>
+            <td th:text="${user.username}"></td>
+        </tr>
     </div>
 </section>
 <footer class="footer">
